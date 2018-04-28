@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     FirebaseApp.configure()
     self.remoteConfig = RemoteConfig.remoteConfig()
+    self.remoteConfig?.configSettings = RemoteConfigSettings(developerModeEnabled: true)!
     self.remoteConfig?.setDefaults(fromPlist: "DefaultRemoteConfigValues")
     
     return true

@@ -34,7 +34,7 @@ class RevealQuestionInteractor: RevealQuestionBusinessLogic, RevealQuestionDataS
     
     // fetch and activate config values
     let remoteConfig = (UIApplication.shared.delegate as? AppDelegate)?.remoteConfig
-    remoteConfig?.fetch(withExpirationDuration: 1, completionHandler: { (status, error) in
+    remoteConfig?.fetch(withExpirationDuration: 0, completionHandler: { (status, error) in
       remoteConfig?.activateFetched()
       
       self.question = remoteConfig?.configValue(forKey: ConfigConstants.questionOfTheDay).stringValue
