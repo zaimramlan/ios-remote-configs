@@ -31,11 +31,18 @@ class RevealQuestionInteractor: RevealQuestionBusinessLogic, RevealQuestionDataS
   // MARK: Use Case - Reveal Question
   
   func RevealQuestion(with request: RevealQuestionModels.RevealQuestion.Request) {
-    question = "What day is it today?"
-    answer = "Sunday"
     
-    let response = RevealQuestionModels.RevealQuestion.Response(question: question)
-    presenter?.presentRevealQuestionResult(with: response)
+    // fetch and activate config values
+    let remoteConfig = (UIApplication.shared.delegate as? AppDelegate)?.remoteConfig
+    remoteConfig?.fetch(withExpirationDuration: 1, completionHandler: { (status, error) in
+      remoteConfig?.activateFetched()
+      
+      self.question = remoteConfig?.configValue(forKey: ConfigConstants.questionOfTheDay).stringValue
+      self.answer   = remoteConfig?.configValue(forKey: ConfigConstants.answerOfTheDay).stringValue
+      
+      let response = RevealQuestionModels.RevealQuestion.Response(question: self.question)
+      self.presenter?.presentRevealQuestionResult(with: response)
+    })
   }
   
   func SubmitAnswer(with request: RevealQuestionModels.SubmitAnswer.Request) {

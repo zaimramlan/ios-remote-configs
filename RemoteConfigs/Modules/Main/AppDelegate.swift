@@ -7,15 +7,26 @@
 //
 
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
-
+  var remoteConfig: RemoteConfig?
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
+    
+    FirebaseApp.configure()
+    self.remoteConfig = RemoteConfig.remoteConfig()
+    
+    let defaultValues: [String : NSObject] = [
+      ConfigConstants.questionOfTheDay: "What day is it today?" as NSObject,
+      ConfigConstants.answerOfTheDay: "Sunday" as NSObject
+    ]
+    self.remoteConfig?.setDefaults(defaultValues)
+    
     return true
   }
 
