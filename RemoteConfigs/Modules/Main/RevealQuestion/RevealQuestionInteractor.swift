@@ -47,7 +47,10 @@ class RevealQuestionInteractor: RevealQuestionBusinessLogic, RevealQuestionDataS
   
   func SubmitAnswer(with request: RevealQuestionModels.SubmitAnswer.Request) {
     var isCorrect = false
-    if let actualAnswer = request.answer, let expectedAnswer = self.answer, actualAnswer.elementsEqual(expectedAnswer) {
+    if let actualAnswer = request.answer?.lowercased().trimmingCharacters(in: .whitespacesAndNewlines),
+       let expectedAnswer = self.answer?.lowercased().trimmingCharacters(in: .whitespacesAndNewlines),
+       actualAnswer.elementsEqual(expectedAnswer) {
+      
       isCorrect = true
     }
     
