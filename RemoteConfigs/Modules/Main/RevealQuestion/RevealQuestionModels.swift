@@ -13,45 +13,39 @@
 import UIKit
 
 enum RevealQuestionModels {
-
-  // MARK: Data Store Fetch
-  
-  enum FetchFromDataStore {
-    struct Request {
-    }
-    
-    struct Response {
-      var userAttribute: String
-    }
-    
-    struct ViewModel {
-      var userAttribute: String
-    }
-  }
   
   // MARK: Use Cases
   
   enum RevealQuestion {
     struct Request {
-      var variableToPass: String?
     }
 
     struct Response {
-      var containsErrors: Bool
-      var genericErrorMessage: String?
-      var variablePassed: VariablePassed?
+      var question: String?
     }
 
     struct ViewModel {
-      var containsErrors: Bool
-      var genericErrorMessage: String?
-      var variablePassed: VariablePassed?
+      var question: String?
     }
   }
-
+  
+  enum SubmitAnswer {
+    struct Request {
+      var answer: String?
+    }
+    
+    struct Response {
+      var isCorrect: Bool
+    }
+    
+    struct ViewModel {
+      var isCorrect: Bool
+    }
+  }
+  
   // MARK: View Models
-
-  struct VariablePassed {
-    var errorMessage: String?
+  
+  enum ToggleViewType {
+    case withAnimation, withoutAnimation
   }
 }

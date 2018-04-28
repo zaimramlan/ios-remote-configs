@@ -13,24 +13,24 @@
 import UIKit
 
 protocol RevealQuestionPresentationLogic {
-  func presentFetchFromDataStoreResult(with response: RevealQuestionModels.FetchFromDataStore.Response)
   func presentRevealQuestionResult(with response: RevealQuestionModels.RevealQuestion.Response)
+  func presentSubmitAnswerResult(with response: RevealQuestionModels.SubmitAnswer.Response)
 }
 
 class RevealQuestionPresenter: RevealQuestionPresentationLogic {
   weak var viewController: RevealQuestionDisplayLogic?
-
-  // MARK: Fetch Data From DataStore
   
-  func presentFetchFromDataStoreResult(with response: RevealQuestionModels.FetchFromDataStore.Response) {
-    let viewModel = RevealQuestionModels.FetchFromDataStore.ViewModel(userAttribute: response.userAttribute)
-    viewController?.displayFetchFromDataStoreResult(with: viewModel)
-  }  
-  
-  // MARK: Use Case - RevealQuestion
+  // MARK: Use Case - Reveal Question
   
   func presentRevealQuestionResult(with response: RevealQuestionModels.RevealQuestion.Response) {
-    let viewModel = RevealQuestionModels.RevealQuestion.ViewModel(containsErrors: response.containsErrors, genericErrorMessage: response.genericErrorMessage, variablePassed: response.variablePassed)
+    let viewModel = RevealQuestionModels.RevealQuestion.ViewModel(question: response.question)
     viewController?.displayRevealQuestionResult(with: viewModel)
+  }
+  
+  // MARK: Use Case - Submit Answer
+  
+  func presentSubmitAnswerResult(with response: RevealQuestionModels.SubmitAnswer.Response) {
+    let viewModel = RevealQuestionModels.SubmitAnswer.ViewModel(isCorrect: response.isCorrect)
+    viewController?.displaySubmitAnswerResult(with: viewModel)
   }
 }

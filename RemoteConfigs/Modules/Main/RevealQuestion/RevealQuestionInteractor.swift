@@ -13,62 +13,38 @@
 import UIKit
 
 protocol RevealQuestionBusinessLogic {
-  func fetchFromDataStore(with request: RevealQuestionModels.FetchFromDataStore.Request)
   func RevealQuestion(with request: RevealQuestionModels.RevealQuestion.Request)
+  func SubmitAnswer(with request: RevealQuestionModels.SubmitAnswer.Request)
 }
 
 protocol RevealQuestionDataStore {
-  var attribute: String? { get set }
+  var question: String? { get set }
+  var answer: String? { get set }
 }
 
 class RevealQuestionInteractor: RevealQuestionBusinessLogic, RevealQuestionDataStore {
-  var worker: RevealQuestionWorker?
+  var worker: RevealQuestionWorker? = RevealQuestionWorker()
   var presenter: RevealQuestionPresentationLogic?
+  var question: String?
+  var answer: String?
   
-  var attribute: String?
-
-  // MARK: Fetch Data From DataStore
-  
-  func fetchFromDataStore(with request: RevealQuestionModels.FetchFromDataStore.Request) {
-    attribute = ""
-    let response = RevealQuestionModels.FetchFromDataStore.Response(userAttribute: attribute!)
-    presenter?.presentFetchFromDataStoreResult(with: response)
-  }
-  
-  // MARK: Use Case - RevealQuestion
+  // MARK: Use Case - Reveal Question
   
   func RevealQuestion(with request: RevealQuestionModels.RevealQuestion.Request) {
-
-    var isError = false
-    var variablePassed = RevealQuestionModels.VariablePassed()
-
-    // MARK: Empty variablePassed Check
-
-    if request.variableToPass == nil {
-      isError = true
-      variablePassed.errorMessage = "Some localised empty/nil error message string."
+    question = "What day is it today?"
+    answer = "Sunday"
+    
+    let response = RevealQuestionModels.RevealQuestion.Response(question: question)
+    presenter?.presentRevealQuestionResult(with: response)
+  }
+  
+  func SubmitAnswer(with request: RevealQuestionModels.SubmitAnswer.Request) {
+    var isCorrect = false
+    if let actualAnswer = request.answer, let expectedAnswer = self.answer, actualAnswer.elementsEqual(expectedAnswer) {
+      isCorrect = true
     }
-
-    if isError {
-      let response = RevealQuestionModels.RevealQuestion.Response(containsErrors: true, genericErrorMessage: nil, variablePassed: variablePassed)
-      presenter?.presentRevealQuestionResult(with: response)
-      return
-    }
-
-    // MARK: Execute Use Case
-
-    worker = RevealQuestionWorker()
-    worker?.RevealQuestion(completionHandler: { (isSuccessful, errorMessage) in
-      if isSuccessful {
-        self.attribute = request.variableToPass!
-        
-        let response = RevealQuestionModels.RevealQuestion.Response(containsErrors: false, genericErrorMessage: nil, variablePassed: variablePassed)
-        self.presenter?.presentRevealQuestionResult(with: response)
-      }
-      else {
-        let response = RevealQuestionModels.RevealQuestion.Response(containsErrors: true, genericErrorMessage: errorMessage, variablePassed: variablePassed)
-        self.presenter?.presentRevealQuestionResult(with: response)
-      }
-    })
+    
+    let response = RevealQuestionModels.SubmitAnswer.Response(isCorrect: isCorrect)
+    presenter?.presentSubmitAnswerResult(with: response)
   }
 }

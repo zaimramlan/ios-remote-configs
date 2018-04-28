@@ -13,8 +13,8 @@
 import UIKit
 
 protocol RevealQuestionDisplayLogic: class {
-  func displayFetchFromDataStoreResult(with viewModel: RevealQuestionModels.FetchFromDataStore.ViewModel)  
   func displayRevealQuestionResult(with viewModel: RevealQuestionModels.RevealQuestion.ViewModel)
+  func displaySubmitAnswerResult(with viewModel: RevealQuestionModels.SubmitAnswer.ViewModel)
 }
 
 class RevealQuestionViewController: UIViewController, RevealQuestionDisplayLogic {
@@ -52,103 +52,87 @@ class RevealQuestionViewController: UIViewController, RevealQuestionDisplayLogic
     router.dataStore = interactor
   }
   
-  // MARK: Routing
-  
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    // if let scene = segue.identifier {
-    //   let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-    //   if let router = router, router.responds(to: selector) {
-    //     router.perform(selector, with: segue)
-    //   }
-    // }
-  }
-  
   // MARK: View Lifecycle
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    setupTexts()
-  }
-
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
-    setupFetchFromDataStore()
-  }
-    
-  // MARK: Texts
-
-  var someLabel = UILabel()
-  func setupTexts() {
-
-    // MARK: Font Setting
-
-    let fontName = "A font name"
-    let fontSize = CGFloat(14.0)
-    var font     = UIFont(name: fontName, size: fontSize)
-
-    if font == nil { font = UIFont.systemFont(ofSize: fontSize) }
-
-    // MARK: Texts
-
-    someLabel.text = "Some Text"
-
-    // MARK: Button
-
-    //let text = Localiser.sharedInstance.string(for: "Module.Sub Module.Element")
-    let text = ""
-    someButton.setTitle(text, for: .normal)
-    someButton.titleLabel?.font = font
-  }
-
-  // MARK: Fetch Data From DataStore
-
-  @IBOutlet var userAttributeLabel: UILabel!
-  func setupFetchFromDataStore() {
-    let request = RevealQuestionModels.FetchFromDataStore.Request()
-    interactor?.fetchFromDataStore(with: request)
+    hideQuestionView(.withoutAnimation)
   }
   
-  func displayFetchFromDataStoreResult(with viewModel: RevealQuestionModels.FetchFromDataStore.ViewModel) {
-    someLabel.text = viewModel.userAttribute
-  }  
+  // MARK: Question View
+  
+  @IBOutlet var questionLabel: UILabel!
+  @IBOutlet var answerTF: UITextField!
+  func showQuestionView(_ toggleType: RevealQuestionModels.ToggleViewType) {
+    switch toggleType {
+    case .withAnimation:
+      UIView.animate(withDuration: 0.5) {
+        self.setQuestionView(alpha: 1.0)
+      }
+      
+    case .withoutAnimation:
+      self.setQuestionView(alpha: 1.0)
+    }
+  }
 
-  // MARK: Use Case - RevealQuestion
+  func hideQuestionView(_ toggleType: RevealQuestionModels.ToggleViewType) {
+    switch toggleType {
+    case .withAnimation:
+      UIView.animate(withDuration: 0.5) {
+        self.setQuestionView(alpha: 0)
+      }
+      
+    case .withoutAnimation:
+      self.setQuestionView(alpha: 0)
+    }
+  }
+  
+  func setQuestionView(alpha: CGFloat) {
+    questionLabel.alpha = alpha
+    answerTF.alpha = alpha
+    submitAnswerButton.alpha = alpha
+  }
 
-  var someButton = UIButton()
-  @IBAction func someButtonClicked(_ sender: Any) {
-    let request = RevealQuestionModels.RevealQuestion.Request(variableToPass: someLabel.text)
+  // MARK: Use Case - Reveal Question
+
+  @IBOutlet var revealQuestionButton: UIButton!
+  @IBAction func revealQuestionButtonClicked(_ sender: Any) {
+    hideQuestionView(.withAnimation)
+    
+    let request = RevealQuestionModels.RevealQuestion.Request()
     interactor?.RevealQuestion(with: request)
   }
 
   func displayRevealQuestionResult(with viewModel: RevealQuestionModels.RevealQuestion.ViewModel) {
-    if viewModel.containsErrors {
-
-      // 1. Handle UIElement changes based on user input
-
-      // for handling errors that is caused
-      // by invalid user input
-      print(viewModel.variablePassed?.errorMessage ?? "")
-
-      // 2. Handle Generic Error Message
-
-      // for handling errors that is caused
-      // by service call from worker
-      if viewModel.genericErrorMessage != nil {
-        
-        // handle generic error
-        print(viewModel.genericErrorMessage ?? "")
-      }
+    questionLabel.text = viewModel.question
+    showQuestionView(.withAnimation)
+  }
+  
+  // MARK: Use Case - Submit Answer
+  
+  @IBOutlet var submitAnswerButton: UIButton!
+  @IBAction func submitAnswerButtonClicked(_ sender: Any) {
+    let answer = answerTF.text
+    let request = RevealQuestionModels.SubmitAnswer.Request(answer: answer)
+    interactor?.SubmitAnswer(with: request)
+  }
+  
+  func displaySubmitAnswerResult(with viewModel: RevealQuestionModels.SubmitAnswer.ViewModel) {
+    var title, message, buttonTitle: String?
+    
+    if viewModel.isCorrect {
+      title = "Correct ✅"
+      message = "Your answer is correct!"
+      buttonTitle = "Awesome"
     }
     else {
-
-      // 1. Handle UIElement changes based on user input
-
-      // set UIElements back to normal state
-
-      // 2. Route to the screen after
-
-      // route to next screen
-      router?.routeToSomewhere()
+      title = "Incorrect ❌"
+      message = "Oops, your answer is incorrect! Please try again."
+      buttonTitle = "Definitely"
     }
+    
+    let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+    alert.addAction(UIAlertAction.init(title: buttonTitle, style: UIAlertActionStyle.default, handler: nil))
+    navigationController?.present(alert, animated: true, completion: nil)
   }
 }

@@ -13,7 +13,6 @@
 import UIKit
 
 protocol RevealQuestionRoutingLogic {
-  func routeToSomewhere()
 }
 
 protocol RevealQuestionDataPassing {
@@ -25,27 +24,4 @@ class RevealQuestionRouter: NSObject, RevealQuestionRoutingLogic, RevealQuestion
   var dataStore: RevealQuestionDataStore?
   
   // MARK: Routing
-
-  func routeToSomewhere() {
-    routeToSomewhere(segue: nil)
-  }
-  
-  func routeToSomewhere(segue: UIStoryboardSegue?) {
-    if let segue = segue {
-      let destinationVC = segue.destination as! RevealQuestionViewController
-      var destinationDS = destinationVC.router!.dataStore!
-      passDataTo(&destinationDS, from: dataStore!)
-    } else {
-      let destinationVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SomewhereViewController") as! RevealQuestionViewController
-      var destinationDS = destinationVC.router!.dataStore!
-      passDataTo(&destinationDS, from: dataStore!)
-      viewController?.navigationController?.pushViewController(destinationVC, animated: true)
-    }
-  }
-  
-  // MARK: Data Passing
-  
-  func passDataTo(_ destinationDS: inout RevealQuestionDataStore, from sourceDS: RevealQuestionDataStore) {
-    destinationDS.attribute = sourceDS.attribute
-  }
 }
