@@ -20,12 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     FirebaseApp.configure()
     self.remoteConfig = RemoteConfig.remoteConfig()
-    
-    let defaultValues: [String : NSObject] = [
-      ConfigConstants.questionOfTheDay: "What day is it today?" as NSObject,
-      ConfigConstants.answerOfTheDay: "Sunday" as NSObject
-    ]
-    self.remoteConfig?.setDefaults(defaultValues)
+    self.remoteConfig?.setDefaults(fromPlist: "DefaultRemoteConfigValues")
     
     return true
   }
