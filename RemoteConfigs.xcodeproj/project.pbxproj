@@ -8,11 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		A40BD6862094E8FE008BF220 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40BD6852094E8FE008BF220 /* AppDelegate.swift */; };
-		A40BD6882094E8FE008BF220 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40BD6872094E8FE008BF220 /* ViewController.swift */; };
 		A40BD68B2094E8FE008BF220 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A40BD6892094E8FE008BF220 /* Main.storyboard */; };
 		A40BD68D2094E8FE008BF220 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A40BD68C2094E8FE008BF220 /* Assets.xcassets */; };
 		A40BD6902094E8FE008BF220 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A40BD68E2094E8FE008BF220 /* LaunchScreen.storyboard */; };
 		A40BD69B2094E8FE008BF220 /* RemoteConfigsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40BD69A2094E8FE008BF220 /* RemoteConfigsTests.swift */; };
+		A4407AE42094EABE009C50FF /* RevealQuestionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4407ADE2094EABE009C50FF /* RevealQuestionPresenter.swift */; };
+		A4407AE52094EABE009C50FF /* RevealQuestionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4407ADE2094EABE009C50FF /* RevealQuestionPresenter.swift */; };
+		A4407AE62094EABE009C50FF /* RevealQuestionWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4407ADF2094EABE009C50FF /* RevealQuestionWorker.swift */; };
+		A4407AE72094EABE009C50FF /* RevealQuestionWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4407ADF2094EABE009C50FF /* RevealQuestionWorker.swift */; };
+		A4407AE82094EABE009C50FF /* RevealQuestionRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4407AE02094EABE009C50FF /* RevealQuestionRouter.swift */; };
+		A4407AE92094EABE009C50FF /* RevealQuestionRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4407AE02094EABE009C50FF /* RevealQuestionRouter.swift */; };
+		A4407AEA2094EABE009C50FF /* RevealQuestionModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4407AE12094EABE009C50FF /* RevealQuestionModels.swift */; };
+		A4407AEB2094EABE009C50FF /* RevealQuestionModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4407AE12094EABE009C50FF /* RevealQuestionModels.swift */; };
+		A4407AEC2094EABE009C50FF /* RevealQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4407AE22094EABE009C50FF /* RevealQuestionViewController.swift */; };
+		A4407AED2094EABE009C50FF /* RevealQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4407AE22094EABE009C50FF /* RevealQuestionViewController.swift */; };
+		A4407AEE2094EABE009C50FF /* RevealQuestionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4407AE32094EABE009C50FF /* RevealQuestionInteractor.swift */; };
+		A4407AEF2094EABE009C50FF /* RevealQuestionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4407AE32094EABE009C50FF /* RevealQuestionInteractor.swift */; };
 		C5AFB190B45420B5904F1F16 /* Pods_RemoteConfigs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AC6021097E18E9E746F4504 /* Pods_RemoteConfigs.framework */; };
 		D817F7EA81C3BCEA9BDF6A87 /* Pods_RemoteConfigsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35FFAACEC9F97C0193FA28C2 /* Pods_RemoteConfigsTests.framework */; };
 /* End PBXBuildFile section */
@@ -35,7 +46,6 @@
 		7863171B7C617EF7BA7F6CAA /* Pods-RemoteConfigs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RemoteConfigs.release.xcconfig"; path = "Pods/Target Support Files/Pods-RemoteConfigs/Pods-RemoteConfigs.release.xcconfig"; sourceTree = "<group>"; };
 		A40BD6822094E8FE008BF220 /* RemoteConfigs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RemoteConfigs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A40BD6852094E8FE008BF220 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A40BD6872094E8FE008BF220 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A40BD68A2094E8FE008BF220 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A40BD68C2094E8FE008BF220 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A40BD68F2094E8FE008BF220 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -43,6 +53,12 @@
 		A40BD6962094E8FE008BF220 /* RemoteConfigsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RemoteConfigsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A40BD69A2094E8FE008BF220 /* RemoteConfigsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigsTests.swift; sourceTree = "<group>"; };
 		A40BD69C2094E8FE008BF220 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A4407ADE2094EABE009C50FF /* RevealQuestionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevealQuestionPresenter.swift; sourceTree = "<group>"; };
+		A4407ADF2094EABE009C50FF /* RevealQuestionWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevealQuestionWorker.swift; sourceTree = "<group>"; };
+		A4407AE02094EABE009C50FF /* RevealQuestionRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevealQuestionRouter.swift; sourceTree = "<group>"; };
+		A4407AE12094EABE009C50FF /* RevealQuestionModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevealQuestionModels.swift; sourceTree = "<group>"; };
+		A4407AE22094EABE009C50FF /* RevealQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevealQuestionViewController.swift; sourceTree = "<group>"; };
+		A4407AE32094EABE009C50FF /* RevealQuestionInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevealQuestionInteractor.swift; sourceTree = "<group>"; };
 		EE3CAD10748C10BBE5ED9A33 /* Pods-RemoteConfigs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RemoteConfigs.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RemoteConfigs/Pods-RemoteConfigs.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -148,12 +164,25 @@
 		A4407ADC2094E999009C50FF /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				A4407ADD2094EA9E009C50FF /* RevealQuestion */,
 				A40BD68E2094E8FE008BF220 /* LaunchScreen.storyboard */,
 				A40BD6892094E8FE008BF220 /* Main.storyboard */,
 				A40BD6852094E8FE008BF220 /* AppDelegate.swift */,
-				A40BD6872094E8FE008BF220 /* ViewController.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		A4407ADD2094EA9E009C50FF /* RevealQuestion */ = {
+			isa = PBXGroup;
+			children = (
+				A4407ADE2094EABE009C50FF /* RevealQuestionPresenter.swift */,
+				A4407ADF2094EABE009C50FF /* RevealQuestionWorker.swift */,
+				A4407AE02094EABE009C50FF /* RevealQuestionRouter.swift */,
+				A4407AE12094EABE009C50FF /* RevealQuestionModels.swift */,
+				A4407AE22094EABE009C50FF /* RevealQuestionViewController.swift */,
+				A4407AE32094EABE009C50FF /* RevealQuestionInteractor.swift */,
+			);
+			path = RevealQuestion;
 			sourceTree = "<group>";
 		};
 		BDE899156BE3BD0C129F64F0 /* Frameworks */ = {
@@ -384,7 +413,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A40BD6882094E8FE008BF220 /* ViewController.swift in Sources */,
+				A4407AEA2094EABE009C50FF /* RevealQuestionModels.swift in Sources */,
+				A4407AE42094EABE009C50FF /* RevealQuestionPresenter.swift in Sources */,
+				A4407AEE2094EABE009C50FF /* RevealQuestionInteractor.swift in Sources */,
+				A4407AE62094EABE009C50FF /* RevealQuestionWorker.swift in Sources */,
+				A4407AE82094EABE009C50FF /* RevealQuestionRouter.swift in Sources */,
+				A4407AEC2094EABE009C50FF /* RevealQuestionViewController.swift in Sources */,
 				A40BD6862094E8FE008BF220 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -394,6 +428,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A40BD69B2094E8FE008BF220 /* RemoteConfigsTests.swift in Sources */,
+				A4407AEF2094EABE009C50FF /* RevealQuestionInteractor.swift in Sources */,
+				A4407AED2094EABE009C50FF /* RevealQuestionViewController.swift in Sources */,
+				A4407AE92094EABE009C50FF /* RevealQuestionRouter.swift in Sources */,
+				A4407AEB2094EABE009C50FF /* RevealQuestionModels.swift in Sources */,
+				A4407AE72094EABE009C50FF /* RevealQuestionWorker.swift in Sources */,
+				A4407AE52094EABE009C50FF /* RevealQuestionPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
