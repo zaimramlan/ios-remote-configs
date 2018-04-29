@@ -12,6 +12,8 @@
 		A40BD68D2094E8FE008BF220 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A40BD68C2094E8FE008BF220 /* Assets.xcassets */; };
 		A40BD6902094E8FE008BF220 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A40BD68E2094E8FE008BF220 /* LaunchScreen.storyboard */; };
 		A40BD69B2094E8FE008BF220 /* RemoteConfigsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40BD69A2094E8FE008BF220 /* RemoteConfigsTests.swift */; };
+		A43D7CC9209557FB008CE0FE /* RemoteConfigurationWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43D7CC8209557FB008CE0FE /* RemoteConfigurationWorker.swift */; };
+		A43D7CCA209557FB008CE0FE /* RemoteConfigurationWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43D7CC8209557FB008CE0FE /* RemoteConfigurationWorker.swift */; };
 		A4407AE42094EABE009C50FF /* RevealQuestionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4407ADE2094EABE009C50FF /* RevealQuestionPresenter.swift */; };
 		A4407AE52094EABE009C50FF /* RevealQuestionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4407ADE2094EABE009C50FF /* RevealQuestionPresenter.swift */; };
 		A4407AE62094EABE009C50FF /* RevealQuestionWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4407ADF2094EABE009C50FF /* RevealQuestionWorker.swift */; };
@@ -24,6 +26,10 @@
 		A4407AED2094EABE009C50FF /* RevealQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4407AE22094EABE009C50FF /* RevealQuestionViewController.swift */; };
 		A4407AEE2094EABE009C50FF /* RevealQuestionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4407AE32094EABE009C50FF /* RevealQuestionInteractor.swift */; };
 		A4407AEF2094EABE009C50FF /* RevealQuestionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4407AE32094EABE009C50FF /* RevealQuestionInteractor.swift */; };
+		A4407AF52094FD28009C50FF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A4407AF42094FD27009C50FF /* GoogleService-Info.plist */; };
+		A4407AF62094FD28009C50FF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A4407AF42094FD27009C50FF /* GoogleService-Info.plist */; };
+		A4407AF82095012A009C50FF /* DefaultRemoteConfigValues.plist in Resources */ = {isa = PBXBuildFile; fileRef = A4407AF72095012A009C50FF /* DefaultRemoteConfigValues.plist */; };
+		A4407AF92095012A009C50FF /* DefaultRemoteConfigValues.plist in Resources */ = {isa = PBXBuildFile; fileRef = A4407AF72095012A009C50FF /* DefaultRemoteConfigValues.plist */; };
 		C5AFB190B45420B5904F1F16 /* Pods_RemoteConfigs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AC6021097E18E9E746F4504 /* Pods_RemoteConfigs.framework */; };
 		D817F7EA81C3BCEA9BDF6A87 /* Pods_RemoteConfigsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35FFAACEC9F97C0193FA28C2 /* Pods_RemoteConfigsTests.framework */; };
 /* End PBXBuildFile section */
@@ -53,12 +59,15 @@
 		A40BD6962094E8FE008BF220 /* RemoteConfigsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RemoteConfigsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A40BD69A2094E8FE008BF220 /* RemoteConfigsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigsTests.swift; sourceTree = "<group>"; };
 		A40BD69C2094E8FE008BF220 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A43D7CC8209557FB008CE0FE /* RemoteConfigurationWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigurationWorker.swift; sourceTree = "<group>"; };
 		A4407ADE2094EABE009C50FF /* RevealQuestionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevealQuestionPresenter.swift; sourceTree = "<group>"; };
 		A4407ADF2094EABE009C50FF /* RevealQuestionWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevealQuestionWorker.swift; sourceTree = "<group>"; };
 		A4407AE02094EABE009C50FF /* RevealQuestionRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevealQuestionRouter.swift; sourceTree = "<group>"; };
 		A4407AE12094EABE009C50FF /* RevealQuestionModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevealQuestionModels.swift; sourceTree = "<group>"; };
 		A4407AE22094EABE009C50FF /* RevealQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevealQuestionViewController.swift; sourceTree = "<group>"; };
 		A4407AE32094EABE009C50FF /* RevealQuestionInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevealQuestionInteractor.swift; sourceTree = "<group>"; };
+		A4407AF42094FD27009C50FF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A4407AF72095012A009C50FF /* DefaultRemoteConfigValues.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = DefaultRemoteConfigValues.plist; sourceTree = "<group>"; };
 		EE3CAD10748C10BBE5ED9A33 /* Pods-RemoteConfigs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RemoteConfigs.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RemoteConfigs/Pods-RemoteConfigs.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -120,10 +129,19 @@
 			path = RemoteConfigsTests;
 			sourceTree = "<group>";
 		};
+		A43D7CC7209557C0008CE0FE /* Workers */ = {
+			isa = PBXGroup;
+			children = (
+				A43D7CC8209557FB008CE0FE /* RemoteConfigurationWorker.swift */,
+			);
+			path = Workers;
+			sourceTree = "<group>";
+		};
 		A4407AD72094E978009C50FF /* Shared */ = {
 			isa = PBXGroup;
 			children = (
 				A4407AD82094E97E009C50FF /* Resources */,
+				A43D7CC7209557C0008CE0FE /* Workers */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -148,6 +166,8 @@
 		A4407ADA2094E988009C50FF /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				A4407AF72095012A009C50FF /* DefaultRemoteConfigValues.plist */,
+				A4407AF42094FD27009C50FF /* GoogleService-Info.plist */,
 				A40BD6912094E8FE008BF220 /* Info.plist */,
 			);
 			path = Support;
@@ -295,6 +315,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A40BD6902094E8FE008BF220 /* LaunchScreen.storyboard in Resources */,
+				A4407AF82095012A009C50FF /* DefaultRemoteConfigValues.plist in Resources */,
+				A4407AF52094FD28009C50FF /* GoogleService-Info.plist in Resources */,
 				A40BD68D2094E8FE008BF220 /* Assets.xcassets in Resources */,
 				A40BD68B2094E8FE008BF220 /* Main.storyboard in Resources */,
 			);
@@ -304,6 +326,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4407AF92095012A009C50FF /* DefaultRemoteConfigValues.plist in Resources */,
+				A4407AF62094FD28009C50FF /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,9 +373,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-RemoteConfigs/Pods-RemoteConfigs-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -416,6 +447,7 @@
 				A4407AEA2094EABE009C50FF /* RevealQuestionModels.swift in Sources */,
 				A4407AE42094EABE009C50FF /* RevealQuestionPresenter.swift in Sources */,
 				A4407AEE2094EABE009C50FF /* RevealQuestionInteractor.swift in Sources */,
+				A43D7CC9209557FB008CE0FE /* RemoteConfigurationWorker.swift in Sources */,
 				A4407AE62094EABE009C50FF /* RevealQuestionWorker.swift in Sources */,
 				A4407AE82094EABE009C50FF /* RevealQuestionRouter.swift in Sources */,
 				A4407AEC2094EABE009C50FF /* RevealQuestionViewController.swift in Sources */,
@@ -430,6 +462,7 @@
 				A40BD69B2094E8FE008BF220 /* RemoteConfigsTests.swift in Sources */,
 				A4407AEF2094EABE009C50FF /* RevealQuestionInteractor.swift in Sources */,
 				A4407AED2094EABE009C50FF /* RevealQuestionViewController.swift in Sources */,
+				A43D7CCA209557FB008CE0FE /* RemoteConfigurationWorker.swift in Sources */,
 				A4407AE92094EABE009C50FF /* RevealQuestionRouter.swift in Sources */,
 				A4407AEB2094EABE009C50FF /* RevealQuestionModels.swift in Sources */,
 				A4407AE72094EABE009C50FF /* RevealQuestionWorker.swift in Sources */,

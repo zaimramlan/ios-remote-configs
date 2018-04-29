@@ -31,16 +31,27 @@ class RevealQuestionInteractor: RevealQuestionBusinessLogic, RevealQuestionDataS
   // MARK: Use Case - Reveal Question
   
   func RevealQuestion(with request: RevealQuestionModels.RevealQuestion.Request) {
-    question = "What day is it today?"
-    answer = "Sunday"
     
-    let response = RevealQuestionModels.RevealQuestion.Response(question: question)
-    presenter?.presentRevealQuestionResult(with: response)
+    // fetch and activate config values
+    RemoteConfigurationWorker.sharedInstance.remoteConfig?.fetch(withExpirationDuration: 0.5, completionHandler: { [unowned self] (status, error) in
+      RemoteConfigurationWorker.sharedInstance.remoteConfig?.activateFetched()
+      
+      self.question = RemoteConfigurationWorker.sharedInstance.remoteConfig?.configValue(forKey: RemoteConfigurationWorker.Keys.questionOfTheDay).stringValue
+      self.answer   = RemoteConfigurationWorker.sharedInstance.remoteConfig?.configValue(forKey: RemoteConfigurationWorker.Keys.answerOfTheDay).stringValue
+      
+      let response = RevealQuestionModels.RevealQuestion.Response(question: self.question)
+      self.presenter?.presentRevealQuestionResult(with: response)
+    })
   }
+  
+  // MARK: Use Case - Submit Answer
   
   func SubmitAnswer(with request: RevealQuestionModels.SubmitAnswer.Request) {
     var isCorrect = false
-    if let actualAnswer = request.answer, let expectedAnswer = self.answer, actualAnswer.elementsEqual(expectedAnswer) {
+    if let actualAnswer = request.answer?.lowercased().trimmingCharacters(in: .whitespacesAndNewlines),
+       let expectedAnswer = self.answer?.lowercased().trimmingCharacters(in: .whitespacesAndNewlines),
+       actualAnswer.elementsEqual(expectedAnswer) {
+      
       isCorrect = true
     }
     
