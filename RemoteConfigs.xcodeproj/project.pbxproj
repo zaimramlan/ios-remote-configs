@@ -12,6 +12,8 @@
 		A40BD68D2094E8FE008BF220 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A40BD68C2094E8FE008BF220 /* Assets.xcassets */; };
 		A40BD6902094E8FE008BF220 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A40BD68E2094E8FE008BF220 /* LaunchScreen.storyboard */; };
 		A40BD69B2094E8FE008BF220 /* RemoteConfigsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40BD69A2094E8FE008BF220 /* RemoteConfigsTests.swift */; };
+		A43D7CC9209557FB008CE0FE /* RemoteConfigurationWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43D7CC8209557FB008CE0FE /* RemoteConfigurationWorker.swift */; };
+		A43D7CCA209557FB008CE0FE /* RemoteConfigurationWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43D7CC8209557FB008CE0FE /* RemoteConfigurationWorker.swift */; };
 		A4407AE42094EABE009C50FF /* RevealQuestionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4407ADE2094EABE009C50FF /* RevealQuestionPresenter.swift */; };
 		A4407AE52094EABE009C50FF /* RevealQuestionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4407ADE2094EABE009C50FF /* RevealQuestionPresenter.swift */; };
 		A4407AE62094EABE009C50FF /* RevealQuestionWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4407ADF2094EABE009C50FF /* RevealQuestionWorker.swift */; };
@@ -24,8 +26,6 @@
 		A4407AED2094EABE009C50FF /* RevealQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4407AE22094EABE009C50FF /* RevealQuestionViewController.swift */; };
 		A4407AEE2094EABE009C50FF /* RevealQuestionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4407AE32094EABE009C50FF /* RevealQuestionInteractor.swift */; };
 		A4407AEF2094EABE009C50FF /* RevealQuestionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4407AE32094EABE009C50FF /* RevealQuestionInteractor.swift */; };
-		A4407AF22094F9F9009C50FF /* ConfigConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4407AF12094F9F9009C50FF /* ConfigConstants.swift */; };
-		A4407AF32094F9F9009C50FF /* ConfigConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4407AF12094F9F9009C50FF /* ConfigConstants.swift */; };
 		A4407AF52094FD28009C50FF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A4407AF42094FD27009C50FF /* GoogleService-Info.plist */; };
 		A4407AF62094FD28009C50FF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A4407AF42094FD27009C50FF /* GoogleService-Info.plist */; };
 		A4407AF82095012A009C50FF /* DefaultRemoteConfigValues.plist in Resources */ = {isa = PBXBuildFile; fileRef = A4407AF72095012A009C50FF /* DefaultRemoteConfigValues.plist */; };
@@ -59,13 +59,13 @@
 		A40BD6962094E8FE008BF220 /* RemoteConfigsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RemoteConfigsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A40BD69A2094E8FE008BF220 /* RemoteConfigsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigsTests.swift; sourceTree = "<group>"; };
 		A40BD69C2094E8FE008BF220 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A43D7CC8209557FB008CE0FE /* RemoteConfigurationWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigurationWorker.swift; sourceTree = "<group>"; };
 		A4407ADE2094EABE009C50FF /* RevealQuestionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevealQuestionPresenter.swift; sourceTree = "<group>"; };
 		A4407ADF2094EABE009C50FF /* RevealQuestionWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevealQuestionWorker.swift; sourceTree = "<group>"; };
 		A4407AE02094EABE009C50FF /* RevealQuestionRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevealQuestionRouter.swift; sourceTree = "<group>"; };
 		A4407AE12094EABE009C50FF /* RevealQuestionModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevealQuestionModels.swift; sourceTree = "<group>"; };
 		A4407AE22094EABE009C50FF /* RevealQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevealQuestionViewController.swift; sourceTree = "<group>"; };
 		A4407AE32094EABE009C50FF /* RevealQuestionInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevealQuestionInteractor.swift; sourceTree = "<group>"; };
-		A4407AF12094F9F9009C50FF /* ConfigConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigConstants.swift; sourceTree = "<group>"; };
 		A4407AF42094FD27009C50FF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A4407AF72095012A009C50FF /* DefaultRemoteConfigValues.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = DefaultRemoteConfigValues.plist; sourceTree = "<group>"; };
 		EE3CAD10748C10BBE5ED9A33 /* Pods-RemoteConfigs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RemoteConfigs.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RemoteConfigs/Pods-RemoteConfigs.debug.xcconfig"; sourceTree = "<group>"; };
@@ -129,11 +129,19 @@
 			path = RemoteConfigsTests;
 			sourceTree = "<group>";
 		};
+		A43D7CC7209557C0008CE0FE /* Workers */ = {
+			isa = PBXGroup;
+			children = (
+				A43D7CC8209557FB008CE0FE /* RemoteConfigurationWorker.swift */,
+			);
+			path = Workers;
+			sourceTree = "<group>";
+		};
 		A4407AD72094E978009C50FF /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				A4407AF02094F9E5009C50FF /* Constants */,
 				A4407AD82094E97E009C50FF /* Resources */,
+				A43D7CC7209557C0008CE0FE /* Workers */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -195,14 +203,6 @@
 				A4407AE32094EABE009C50FF /* RevealQuestionInteractor.swift */,
 			);
 			path = RevealQuestion;
-			sourceTree = "<group>";
-		};
-		A4407AF02094F9E5009C50FF /* Constants */ = {
-			isa = PBXGroup;
-			children = (
-				A4407AF12094F9F9009C50FF /* ConfigConstants.swift */,
-			);
-			path = Constants;
 			sourceTree = "<group>";
 		};
 		BDE899156BE3BD0C129F64F0 /* Frameworks */ = {
@@ -447,7 +447,7 @@
 				A4407AEA2094EABE009C50FF /* RevealQuestionModels.swift in Sources */,
 				A4407AE42094EABE009C50FF /* RevealQuestionPresenter.swift in Sources */,
 				A4407AEE2094EABE009C50FF /* RevealQuestionInteractor.swift in Sources */,
-				A4407AF22094F9F9009C50FF /* ConfigConstants.swift in Sources */,
+				A43D7CC9209557FB008CE0FE /* RemoteConfigurationWorker.swift in Sources */,
 				A4407AE62094EABE009C50FF /* RevealQuestionWorker.swift in Sources */,
 				A4407AE82094EABE009C50FF /* RevealQuestionRouter.swift in Sources */,
 				A4407AEC2094EABE009C50FF /* RevealQuestionViewController.swift in Sources */,
@@ -462,7 +462,7 @@
 				A40BD69B2094E8FE008BF220 /* RemoteConfigsTests.swift in Sources */,
 				A4407AEF2094EABE009C50FF /* RevealQuestionInteractor.swift in Sources */,
 				A4407AED2094EABE009C50FF /* RevealQuestionViewController.swift in Sources */,
-				A4407AF32094F9F9009C50FF /* ConfigConstants.swift in Sources */,
+				A43D7CCA209557FB008CE0FE /* RemoteConfigurationWorker.swift in Sources */,
 				A4407AE92094EABE009C50FF /* RevealQuestionRouter.swift in Sources */,
 				A4407AEB2094EABE009C50FF /* RevealQuestionModels.swift in Sources */,
 				A4407AE72094EABE009C50FF /* RevealQuestionWorker.swift in Sources */,

@@ -33,17 +33,18 @@ class RevealQuestionInteractor: RevealQuestionBusinessLogic, RevealQuestionDataS
   func RevealQuestion(with request: RevealQuestionModels.RevealQuestion.Request) {
     
     // fetch and activate config values
-    let remoteConfig = (UIApplication.shared.delegate as? AppDelegate)?.remoteConfig
-    remoteConfig?.fetch(withExpirationDuration: 0, completionHandler: { (status, error) in
-      remoteConfig?.activateFetched()
+    RemoteConfigurationWorker.sharedInstance.remoteConfig?.fetch(withExpirationDuration: 0.5, completionHandler: { [unowned self] (status, error) in
+      RemoteConfigurationWorker.sharedInstance.remoteConfig?.activateFetched()
       
-      self.question = remoteConfig?.configValue(forKey: ConfigConstants.questionOfTheDay).stringValue
-      self.answer   = remoteConfig?.configValue(forKey: ConfigConstants.answerOfTheDay).stringValue
+      self.question = RemoteConfigurationWorker.sharedInstance.remoteConfig?.configValue(forKey: RemoteConfigurationWorker.Keys.questionOfTheDay).stringValue
+      self.answer   = RemoteConfigurationWorker.sharedInstance.remoteConfig?.configValue(forKey: RemoteConfigurationWorker.Keys.answerOfTheDay).stringValue
       
       let response = RevealQuestionModels.RevealQuestion.Response(question: self.question)
       self.presenter?.presentRevealQuestionResult(with: response)
     })
   }
+  
+  // MARK: Use Case - Submit Answer
   
   func SubmitAnswer(with request: RevealQuestionModels.SubmitAnswer.Request) {
     var isCorrect = false
