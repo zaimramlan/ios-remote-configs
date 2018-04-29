@@ -92,6 +92,27 @@ class RevealQuestionViewController: UIViewController, RevealQuestionDisplayLogic
     answerTF.alpha = alpha
     submitAnswerButton.alpha = alpha
   }
+  
+  // MARK: Alert
+  
+  func alertBasedOn(answer truth: Bool) {
+    var title, message, buttonTitle: String?
+    
+    if truth {
+      title = "Correct ✅"
+      message = "Your answer is correct!"
+      buttonTitle = "Awesome"
+    }
+    else {
+      title = "Incorrect ❌"
+      message = "Oops, your answer is incorrect! Please try again."
+      buttonTitle = "Definitely"
+    }
+    
+    let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+    alert.addAction(UIAlertAction.init(title: buttonTitle, style: UIAlertActionStyle.default, handler: nil))
+    navigationController?.present(alert, animated: true, completion: nil)
+  }
 
   // MARK: Use Case - Reveal Question
 
@@ -118,21 +139,6 @@ class RevealQuestionViewController: UIViewController, RevealQuestionDisplayLogic
   }
   
   func displaySubmitAnswerResult(with viewModel: RevealQuestionModels.SubmitAnswer.ViewModel) {
-    var title, message, buttonTitle: String?
-    
-    if viewModel.isCorrect {
-      title = "Correct ✅"
-      message = "Your answer is correct!"
-      buttonTitle = "Awesome"
-    }
-    else {
-      title = "Incorrect ❌"
-      message = "Oops, your answer is incorrect! Please try again."
-      buttonTitle = "Definitely"
-    }
-    
-    let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-    alert.addAction(UIAlertAction.init(title: buttonTitle, style: UIAlertActionStyle.default, handler: nil))
-    navigationController?.present(alert, animated: true, completion: nil)
+    alertBasedOn(answer: viewModel.isCorrect)
   }
 }
