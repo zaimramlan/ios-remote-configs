@@ -110,7 +110,7 @@ class RevealQuestionViewController: UIViewController, RevealQuestionDisplayLogic
     }
     
     let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-    alert.addAction(UIAlertAction.init(title: buttonTitle, style: UIAlertActionStyle.default, handler: nil))
+    alert.addAction(UIAlertAction.init(title: buttonTitle, style: UIAlertAction.Style.default, handler: nil))
     navigationController?.present(alert, animated: true, completion: nil)
   }
 
